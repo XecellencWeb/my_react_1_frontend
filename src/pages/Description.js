@@ -33,7 +33,7 @@ function Description() {
     }
 
     useEffect(()=>{
-        getGameById()
+       gameId && getGameById()
     },[gameId])
     return(
        <div>
