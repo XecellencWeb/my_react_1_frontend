@@ -24,7 +24,7 @@ import EditGame from "./pages/Admin/EditGame"
 export const Important = createContext()
 
 
-axios.defaults.baseURL = 'http://localhost:5000'
+axios.defaults.baseURL = 'https://mygamereactapp.onrender.com'
 axios.defaults.headers.common['Accept'] = 'application/json'
 
 function App() {
