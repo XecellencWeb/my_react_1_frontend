@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useContext, useEffect, useState } from "react"
-import { useLocation } from "react-router"
+import { useLocation, useSeachParams } from "react-router"
 import FetchGame from "./Admin/fetch/FetchGame"
 import Game from "../components/Game"
 import { HeartFill } from "react-bootstrap-icons"
@@ -12,8 +12,9 @@ function Description() {
     const {user} = useContext(Important)
     const games = FetchGame()
  
-    const {pathname} = useLocation()
-    const gameId = pathname.split('/')[2]
+    const {search} = useLocation()
+    const [param] = useSearchParams(search)
+     const gameId = param.get('id')
     const [loading, setLoading] = useState(false)
     const [game, setGame] = useState()
     const [error, setError] = useState()
@@ -56,7 +57,7 @@ function Description() {
             
         {games && games.filter((related)=>{return related.categories.includes(game.categories[0])}).map(relates => (
             
-           relates._id !== gameId && <Game value={relates.name} expected={`/game/${relates._id}`} picture={relates.pictures[0]} thegame={relates} />
+           relates._id !== gameId && <Game value={relates.name} expected={`/game?id=${relates._id}`} picture={relates.pictures[0]} thegame={relates} />
           
         ))}
         </div>
