@@ -42,8 +42,8 @@ function Description() {
           :error
         ?
         <div><h2>{error.status}</h2><p>{error.data}</p></div>
-        :game && user && <div className="a-game"><div className="game-header"><div className="direction-shape"></div><div className="some-content"><h1>{game.name}</h1>
-        <div className="game-likes"><HeartFill size={20} className={game.likedby.includes(user._id)?'red':'heart'} onClick={()=>{game.likedby.includes(user._id)?unLike(game._id,user._id):onLike(game._id,user._id)}}/><p>likes: {game.likesNumber}</p></div>
+        :game && <div className="a-game"><div className="game-header"><div className="direction-shape"></div><div className="some-content"><h1>{game.name}</h1>
+        <div className="game-likes"><HeartFill size={20} className={user && game.likedby.includes(user._id)?'red':'heart'} onClick={()=>{user && game.likedby.includes(user._id)?unLike(game._id,user._id):onLike(game._id,user._id)}}/><p>likes: {game.likesNumber}</p></div>
         </div></div>
         <div className="game-desc">{game.description}</div>
         <div className="game-images">
