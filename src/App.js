@@ -115,7 +115,7 @@ localStorage.setItem('user',JSON.stringify(newUserRaw))
         <Route path='AddGame' element={<AddGame/>}/>
       </Route>
       <Route path='editgame' element={<EditGame/>}/>
-      <Route path="/game/:id" element={<Description/>}/>
+      <Route path="/game" element={<Description/>}/>
       <Route path='*' element={<NotFound/>}/>
     </Routes>
     <Navbar/>
