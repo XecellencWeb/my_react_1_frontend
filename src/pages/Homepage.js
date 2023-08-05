@@ -7,7 +7,7 @@ function Homepage() {
   return (
     <div className="game-container">
       {games && games.map(game=>(
-        <Game picture={game.pictures[0]} value={game.name} expected={`/game/${game._id}`} thegame={game}/>
+        <Game picture={game.pictures[0]} value={game.name} expected={`/game?id=${game._id}`} thegame={game}/>
       ))}
     </div>
   )
